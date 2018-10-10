@@ -30,7 +30,8 @@ public class NumericString {
         return result;
     }
 
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String s = in.next();
         int k = in.nextInt();

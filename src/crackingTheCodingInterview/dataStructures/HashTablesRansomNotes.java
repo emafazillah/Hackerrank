@@ -46,7 +46,8 @@ public class HashTablesRansomNotes {
     	return true;
     }
 
-    public static void main(String[] args) {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();
         int n = scanner.nextInt();

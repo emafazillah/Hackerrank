@@ -16,6 +16,7 @@ class NodeDay23 {
 
 public class Day23 {
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static void levelOrder(NodeDay23 root) {
 		Queue<NodeDay23> queue = new LinkedList();
 		queue.add(root);
@@ -46,6 +47,7 @@ public class Day23 {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();

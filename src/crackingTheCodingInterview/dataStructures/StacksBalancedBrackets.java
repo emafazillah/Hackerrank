@@ -32,6 +32,7 @@ public class StacksBalancedBrackets {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int t = in.nextInt();

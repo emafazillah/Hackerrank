@@ -18,6 +18,7 @@ class Node {
 
 public class PreorderTraversal {
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static void levelOrder(Node root) {
 		Queue<Node> queue = new LinkedList();
 		queue.add(root);
@@ -49,6 +50,7 @@ public class PreorderTraversal {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();

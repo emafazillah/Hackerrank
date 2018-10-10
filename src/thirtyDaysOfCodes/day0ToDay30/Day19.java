@@ -12,6 +12,7 @@ class CalculatorDay19 implements AdvancedArithmetic19 {
 	public CalculatorDay19() {
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public int divisorSum(int no) {
 		int count = 1;
 		int result = 0;

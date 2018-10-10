@@ -14,6 +14,7 @@ class Hacker {
 
 public class JavaInstanceOfKeyword {
 
+	@SuppressWarnings("rawtypes")
 	static String count(ArrayList mylist) {
 		int a = 0, b = 0, c = 0;
 		for (int i = 0; i < mylist.size(); i++) {
@@ -29,6 +30,7 @@ public class JavaInstanceOfKeyword {
 		return ret;
 	}
 
+	@SuppressWarnings({ "rawtypes", "resource", "unchecked" })
 	public static void main(String[] args) {
 		ArrayList mylist = new ArrayList();
 		Scanner sc = new Scanner(System.in);

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class LeftRotation2 {
 	
 	// Score 20.00
+	@SuppressWarnings("resource")
 	public static void main (String[] args) {
 		// Input
 		Scanner scan = new Scanner(System.in);

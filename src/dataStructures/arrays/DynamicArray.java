@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class DynamicArray {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		// Input
 		Scanner scan = new Scanner(System.in);

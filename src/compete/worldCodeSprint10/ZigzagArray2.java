@@ -30,7 +30,8 @@ public class ZigzagArray2 {
         return result;
     }
 
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];

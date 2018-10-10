@@ -12,6 +12,7 @@ class Printer<T> {
 
 public class Day21 {
 
+	@SuppressWarnings({ "resource", "static-access" })
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class LeftRotation {
 	
 	// Score 15.56. Time out at Test Case #8 Test Case #9 
+	@SuppressWarnings("resource")
 	public static void main (String[] args) {
 		// Input
 		Scanner scan = new Scanner(System.in);

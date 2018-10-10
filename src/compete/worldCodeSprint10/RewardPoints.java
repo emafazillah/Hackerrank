@@ -23,7 +23,8 @@ public class RewardPoints {
         return total;
     }
 
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int month1 = in.nextInt();
         int month2 = in.nextInt();

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class AsciiFlower {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int r = in.nextInt();

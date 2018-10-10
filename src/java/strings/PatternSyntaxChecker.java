@@ -6,6 +6,7 @@ import java.util.regex.PatternSyntaxException;
 
 public class PatternSyntaxChecker {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int testCases = Integer.parseInt(in.nextLine());

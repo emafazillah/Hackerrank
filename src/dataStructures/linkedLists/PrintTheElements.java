@@ -18,6 +18,7 @@ class Node01 {
 
 public class PrintTheElements {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		Node01 head = null; 

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class JavaIterator {
 
+	@SuppressWarnings("rawtypes")
 	static Iterator func(ArrayList mylist) {
 		Iterator it = mylist.iterator();
 		while (it.hasNext()) {
@@ -19,7 +20,7 @@ public class JavaIterator {
 
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes", "resource" })
 	public static void main(String[] args) {
 		ArrayList mylist = new ArrayList();
 		Scanner sc = new Scanner(System.in);
