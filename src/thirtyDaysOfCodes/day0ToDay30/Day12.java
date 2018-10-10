@@ -31,7 +31,7 @@ class Student extends Person{
         this.testScores = testScores;
     }
     
-    void setTestScores() {
+    void setTestScores(int[] testScores) {
         this.testScores = testScores;
     }
     
