@@ -9,8 +9,30 @@ public class ServiceLane {
 	
 	// Complete the serviceLane function below.
     static int[] serviceLane(int n, int[][] cases) {
-
-    	return null;
+    	int t = cases.length;    	
+    	
+    	int[] result = new int[t];
+    	
+    	for (int i = 0; i < t; i++) {
+    		int size = cases[i][1] + 1;
+    		
+    		int min = 0;
+    		
+    		for (int j = 0; j < size; j++) {
+    			// Fix these lines
+    			if (j == 0) {
+    				min = cases[i][j];
+    			} else {
+    				if (cases[i][j] < min) {
+    					min = cases[i][j];
+    				}
+    			}
+    		}
+    		
+    		result[i] = min;
+    	}
+    	
+    	return result;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
