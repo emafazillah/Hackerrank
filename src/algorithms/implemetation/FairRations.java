@@ -1,41 +1,45 @@
 package implemetation;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FairRations {
 	
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
-        int B[] = new int[N];
-        for(int B_i=0; B_i < N; B_i++){
-            B[B_i] = in.nextInt();
+	// Complete the fairRations function below.
+    static int fairRations(int[] B) {
+
+    	
+    	return 0;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int N = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] B = new int[N];
+
+        String[] BItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < N; i++) {
+            int BItem = Integer.parseInt(BItems[i]);
+            B[i] = BItem;
         }
-        int distributed_bread = N;
-        int count_even = 0;
-        while(distributed_bread > -1) {
-            System.out.println("distributed_bread==="+distributed_bread);
-            for(int i = 0; i < N; i++) {                
-                if(B[i] % 2 != 0) {
-                    B[i]++;
-                    distributed_bread--;
-                } else {
-                    count_even++;
-                }
-                System.out.println("B["+i+"]==="+B[i]);
-            }
-            if(count_even == N) 
-                break;
-            else 
-                count_even = 0;            
-        }
-        if(count_even == N) {
-            System.out.println("N==="+N);
-            System.out.println("distributed_bread==="+distributed_bread);
-        } else {
-            System.out.println("NO");
-        }
-        in.close();
-	}
+
+        int result = fairRations(B);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
 
 }
