@@ -8,23 +8,29 @@ import java.util.Scanner;
 public class ServiceLane {
 	
 	// Complete the serviceLane function below.
-    static int[] serviceLane(int n, int[][] cases) {
+    // static int[] serviceLane(int n, int[][] cases) {
+	static int[] serviceLane(int[] width, int[][] cases) {
+    	// n = number of width
+    	// cases = list of test cases start index and end index
+    	// e.g cases[i][j] = for test case i, start index is j0 and end index j1 
+    	
     	int t = cases.length;    	
     	
     	int[] result = new int[t];
     	
     	for (int i = 0; i < t; i++) {
-    		int size = cases[i][1] + 1;
-    		
     		int min = 0;
     		
-    		for (int j = 0; j < size; j++) {
-    			// Fix these lines
-    			if (j == 0) {
-    				min = cases[i][j];
+    		int start = cases[i][0];
+    		
+    		int end = cases[i][1];
+    		
+    		for (int j = start; j < end + 1; j++) {
+    			if (j == start) {
+    				min = width[j];
     			} else {
-    				if (cases[i][j] < min) {
-    					min = cases[i][j];
+    				if (min > width[j]) {
+    					min = width[j];
     				}
     			}
     		}
@@ -68,7 +74,8 @@ public class ServiceLane {
             }
         }
 
-        int[] result = serviceLane(n, cases);
+        // int[] result = serviceLane(n, cases);
+        int[] result = serviceLane(width, cases);
 
         for (int i = 0; i < result.length; i++) {
             bufferedWriter.write(String.valueOf(result[i]));
