@@ -8,31 +8,13 @@ import java.util.Scanner;
 public class CountingSort1 {
 	
 	// Complete the countingSort function below.
-    static int[] countingSort(int[] arr) {
-    	int n = arr.length;
-    	
-    	int[] count = new int[n];
-    	
-    	for (int i = 0; i < n; i++) {
-    		if (i == arr[i]) {
-    			count[i]++;
-    		}
-    	}
-    	
-    	int[] sortedList = new int[n];
-    	
-    	int idx = 0;
-        
-        for (int i = 0; i < n; i++) {
-            if (count[i] > 0) {
-                for (int j = 0; j < count[i]; j++) {
-                    sortedList[idx] = i;
-                    idx++;
-                }
-            }
+	static int[] countingSort(int[] arr, int n) {
+        int a[]=new int[100];
+        for(int i=0;i<n;i++)
+        {
+            a[arr[i]]++;
         }
-    	
-    	return null;
+        return a;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -53,7 +35,7 @@ public class CountingSort1 {
             arr[i] = arrItem;
         }
 
-        int[] result = countingSort(arr);
+        int[] result = countingSort(arr, n);
 
         for (int i = 0; i < result.length; i++) {
             bufferedWriter.write(String.valueOf(result[i]));
@@ -66,30 +48,6 @@ public class CountingSort1 {
         bufferedWriter.newLine();
 
         bufferedWriter.close();
-
-        scanner.close();
-    }
-    
-    public static void main(String[] args) throws IOException {
-        int n = Integer.parseInt(scanner.nextLine());
-
-        int[] arr = new int[n];
-
-        String[] arrItems = scanner.nextLine().split(" ");
-
-        for (int i = 0; i < n; i++) {
-        	arr[i] = Integer.parseInt(arrItems[i]);
-        }
-
-        int[] result = countingSort(arr);
-
-        for (int i = 0; i < result.length; i++) {
-        	System.out.println(String.valueOf(result[i]));
-
-            if (i != result.length - 1) {
-            	System.out.println(" ");
-            }
-        }
 
         scanner.close();
     }
