@@ -8,54 +8,39 @@ public class Quicksort1Partition {
     // Complete the quickSort function below.
     static int[] quickSort(int[] arr) {
         int size = arr.length;
-        int[] result = new int[size];
         
-        int equal = arr[0];
-        int[] right = initArr(size);
-        int[] left = initArr(size);
+        int pivot = arr[0];
+        int pIndex = 0;
         
-        // Divide
-        for(int i = 1; i < size; i++) {
-            if(arr[i] > equal) {
-                right[i] = arr[i];
-            } else if(arr[i] < equal) {
-                left[i] = arr[i];
+        // pivot > arr[i] && pIndex < i -> pivot swap to right
+        // pivot < arr[i] && pIndex > i -> pivot swap to left
+        // pivot < arr[i] && pIndex < i -> no swap
+        // pivot > arr[i] && pIndex > i -> no swap
+        // pivot == arr[i] -> no swap
+        
+        // Sort right to left
+        for(int i = size - 1; i >= 0; i--) {
+            int arri = arr[i];
+            if(pivot > arr[i] && pIndex < i || 
+                    pivot < arr[i] && pIndex > i) {
+                arr[i] = pivot;
+                arr[pIndex] = arri;
+                pIndex = i;
             }
         }
         
-        // Sort
-        int idx = 0;
-        // Left
-        int j = 0;
-        while(j < size) {
-            if(left[j] > 0) {
-                result[idx] = left[j];
-                ++idx;
-            }
-            ++j;
-        }
-        // Equal
-        result[idx] = equal;
-        ++idx;
-        // Right
-        j = 0;
-        while(j < size) {
-            if(right[j] > 0) {
-                result[idx] = right[j];
-                ++idx;
-            }
-            ++j;
-        }
-
-        return result;
-    }
-
-    static int[] initArr(int size) {
-        int[] result = new int[size];
+        // Sort left to right
         for(int i = 0; i < size; i++) {
-            result[i] = 0;
+            int arri = arr[i];
+            if(pivot > arr[i] && pIndex < i || 
+                    pivot < arr[i] && pIndex > i) {
+                arr[i] = pivot;
+                arr[pIndex] = arri;
+                pIndex = i;
+            }
         }
-        return result;
+
+        return arr;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
