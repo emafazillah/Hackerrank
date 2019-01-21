@@ -10,18 +10,16 @@ public class Quicksort1Partition {
         int size = arr.length;
         
         int pivot = arr[0];
-        int pIndex = 1;
+        int pIndex = size - 1;
         int temp = 0;
         
-        int i = size - 1;
-        while(i > pIndex) {
-        	if(arr[i] < pivot) {
+        for(int i = size - 1; i >= 1; i--) {
+        	if(arr[i] >= pivot) {
         		temp = arr[i];
         		arr[i] = arr[pIndex];
         		arr[pIndex] = temp;
-        		++pIndex;
+        		--pIndex;
         	}
-        	--i;
         }
         
         temp = arr[pIndex];
