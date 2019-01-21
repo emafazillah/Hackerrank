@@ -10,35 +10,23 @@ public class Quicksort1Partition {
         int size = arr.length;
         
         int pivot = arr[0];
-        int pIndex = 0;
+        int pIndex = 1;
+        int temp = 0;
         
-        // pivot > arr[i] && pIndex < i -> pivot swap to right
-        // pivot < arr[i] && pIndex > i -> pivot swap to left
-        // pivot < arr[i] && pIndex < i -> no swap
-        // pivot > arr[i] && pIndex > i -> no swap
-        // pivot == arr[i] -> no swap
-        
-        // Sort right to left
-        for(int i = size - 1; i >= 0; i--) {
-            int arri = arr[i];
-            if(pivot > arr[i] && pIndex < i || 
-                    pivot < arr[i] && pIndex > i) {
-                arr[i] = pivot;
-                arr[pIndex] = arri;
-                pIndex = i;
-            }
+        int i = size - 1;
+        while(i > pIndex) {
+        	if(arr[i] < pivot) {
+        		temp = arr[i];
+        		arr[i] = arr[pIndex];
+        		arr[pIndex] = temp;
+        		++pIndex;
+        	}
+        	--i;
         }
         
-        // Sort left to right
-        for(int i = 0; i < size; i++) {
-            int arri = arr[i];
-            if(pivot > arr[i] && pIndex < i || 
-                    pivot < arr[i] && pIndex > i) {
-                arr[i] = pivot;
-                arr[pIndex] = arri;
-                pIndex = i;
-            }
-        }
+        temp = arr[pIndex];
+        arr[pIndex] = pivot;
+        arr[0] = temp;
 
         return arr;
     }
