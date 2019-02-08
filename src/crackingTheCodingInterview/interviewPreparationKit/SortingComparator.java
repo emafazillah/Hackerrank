@@ -16,17 +16,17 @@ public class SortingComparator {
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 		
 		// Store into a list, players
-        List<Player> players = new ArrayList<>();
+        List<Player1> players = new ArrayList<>();
 		for(int i = 0; i < countInput; i++) {
 			String[] input = scanner.nextLine().split(" ");
-			Player player = new Player(input[0], Integer.parseInt(input[1]));
+			Player1 player = new Player1(input[0], Integer.parseInt(input[1]));
 			players.add(player);
 		}
         
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
         
         // Sort and compare
-		Collections.sort(players, new Checker());
+		Collections.sort(players, new Checker1());
 		
 		// Print result
 		for(int i = 0; i < countInput; i++) {
@@ -38,15 +38,15 @@ public class SortingComparator {
 
 }
 
-class Player {
+class Player1 {
 	String name = "";
 	Integer score = 0;
 	
-	public Player() {
+	public Player1() {
 		
 	}
 
-	public Player(String name, Integer score) {
+	public Player1(String name, Integer score) {
 		this.name = name;
 		this.score = score;
 	}
@@ -68,8 +68,8 @@ class Player {
 	}
 }
 
-class Checker implements Comparator<Player> {
-	public int compare(Player a, Player b) {
+class Checker1 implements Comparator<Player1> {
+	public int compare(Player1 a, Player1 b) {
 		if(b.getScore().compareTo(a.getScore()) == 0) {
 			return a.getName().compareTo(b.getName());
 		} else {
