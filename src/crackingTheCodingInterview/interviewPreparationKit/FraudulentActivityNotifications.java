@@ -1,40 +1,38 @@
 package interviewPreparationKit;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class FraudulentActivityNotifications {
 	
 	// Complete the activityNotifications function below.
     static int activityNotifications(int[] expenditure, int d) {
-    	// Create list to calculate median later
-		List<Integer> list = new ArrayList<>();
-		
+    	
 		int countNotification = 0;
     	int offset = 0;
     	while((d + offset) < expenditure.length) {
+    		// Create list to calculate median later
+    		int[] list = new int[d];
+    		
+    		// Store expenditure value, expenditureValue
     		int expenditureValue = expenditure[d + offset];
+    		
     		int j = 0;
 			while(j < d) {
-				list.add(expenditure[offset + j]);
+				list[j] = expenditure[offset + j];
 				++j;
 			}
 			
 			// Sort list
-			Collections.sort(list);
+			//Collections.sort(list); // --> culprit
+			int[] sortedList = countingSort(list);
 			
-			// Calculate median
-			double med = 0D;
-			double pos1 = Math.floor((list.size() - 1) / 2.0);
-			double pos2 = Math.ceil((list.size() - 1) / 2.0);
-			if(pos1 == pos2) {
-				med = list.get((int) pos1);
-			} else {
-				med = (list.get((int) pos1) + list.get((int) pos2)) / 2.0;
-			}
+			
+			// Calculate median from sorted list
+			double med = calculateMedian(sortedList);
 			
 			// Send notification if expenditureValue equal or greater than 2 x median
 			if(expenditureValue >= (2 * med)) {
@@ -42,12 +40,70 @@ public class FraudulentActivityNotifications {
 			}
 			
 			// increase offset
-			// clear list
 			++offset;
-			list.clear();
     	}
 
     	return countNotification;
+    }
+    
+    private static int[] countingSort(int[] arr) {
+    	int[] result = new int[arr.length];
+    	
+    	int max = Arrays.stream(arr).max().getAsInt();
+    	int min = Arrays.stream(arr).min().getAsInt();
+    	
+    	// Step 1
+    	// Map number in arr arrays and count of the number
+    	// Map key = number in arr arrays, map value = number's count
+    	// Length of the map = max - min
+    	Map<Integer, Integer> map = new TreeMap<>();
+    	int i = min;
+    	while(i < max + 1) {
+    		// Count how many number in the array
+    		int j = 0;
+    		int count = 0;
+    		while(j < arr.length) {
+    			if(arr[j] == i) {
+    				++count;
+    			}
+    			++j;
+    		}
+    		
+    		// Put the number and the count into the map
+    		map.put(i, count);
+    		
+    		++i;
+    	}
+    	
+    	// Step 2
+    	// Rearrange index of the numbers of the array according to map
+    	// Offset to insert into new array, result
+    	int offset = 0;
+    	for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+    		if(entry.getValue() > 0) {
+    			int j = 0;
+    			while(j < entry.getValue()) {
+    				result[offset] = entry.getKey();
+    				++offset;
+    				++j;
+    			}
+    		}
+    	}
+    	
+    	return result;
+    }
+    
+    private static double calculateMedian(int[] arr) {
+    	double med = 0D;
+		double pos1 = Math.floor((arr.length - 1) / 2.0);
+		double pos2 = Math.ceil((arr.length - 1) / 2.0);
+		if(pos1 == pos2) {
+			med = arr[(int) pos1];
+		} else {
+			med = (arr[(int) pos1] + arr[(int) pos2]) / 2.0;
+		}
+		
+		return med;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
