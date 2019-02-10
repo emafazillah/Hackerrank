@@ -6,6 +6,13 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+
+/**
+ * 
+ * @author emafazillah
+ * TIMED-OUT
+ *
+ */
 public class FraudulentActivityNotifications {
 	
 	// Complete the activityNotifications function below.
