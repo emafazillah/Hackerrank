@@ -81,27 +81,22 @@ public class InsertANodeAtASpecificPositionInALinkedList {
      *
      */
     static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position) {
-    	// Get node, next, for position, position
-    	SinglyLinkedListNode next = head;
-    	int i = 0;
-    	while(i < position) {
-    		next = next.next;
-    		++i;
-    	}
+    	SinglyLinkedList newHead = new SinglyLinkedList();
     	
-    	// Now next contains node at position, position
-    	// Swap next with node and node.next with next
-    	SinglyLinkedListNode node = new SinglyLinkedListNode(data);
-    	SinglyLinkedList linkedList = new SinglyLinkedList();
+    	int i = 0;
     	while(head != null) {
-    		if(head.data == next.data) {
-    			linkedList.insertNode(node.data);
+    		if(i == position) {
+    			newHead.insertNode(data);
     		}
-    		linkedList.insertNode(head.data);
+    		
+    		newHead.insertNode(head.data);
+    		
+    		++i;
+    		
     		head = head.next;
     	}
     	
-    	return linkedList.head;
+    	return newHead.head;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
