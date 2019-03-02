@@ -58,20 +58,34 @@ public class PrintInReverse {
      *     SinglyLinkedListNode next;
      * }
      *
-     */
+     */    
     static void reversePrint(SinglyLinkedListNode head) {
-    	SinglyLinkedList reverseSinglyLinkedList = new SinglyLinkedList();
-    	SinglyLinkedListNode reverseNode = new SinglyLinkedListNode(head.data);
+    	//SinglyLinkedList reverseSinglyLinkedList = new SinglyLinkedList();
+    	SinglyLinkedListNode temp = head;
+    	int count = 1;
     	
-    	while(head.next != null) {
-    		SinglyLinkedListNode temp = reverseNode;
-    		reverseNode = new SinglyLinkedListNode(head.next.data);
-    		reverseNode.next = temp;
-    		reverseSinglyLinkedList.insertNode(reverseNode.data);
-    		head = head.next;
+    	while(temp.next != null) {
+    		temp = temp.next;
+    		++count;
     	}
     	
-    	printSinglyLinkedList(reverseSinglyLinkedList.head, " ");
+    	while(count > 0) {
+    		temp = head;
+    		
+    		int innerCount = count;
+    		while(innerCount > 1) {
+    			temp = temp.next;
+    			--innerCount;
+    		}
+    		
+    		//reverseSinglyLinkedList.insertNode(temp.data);
+    		
+    		System.out.println(temp.data);
+    		
+    		--count;
+    	}
+    	
+    	//printSinglyLinkedList(reverseSinglyLinkedList.head, "\r\n");
     }
 
     private static final Scanner scanner = new Scanner(System.in);
