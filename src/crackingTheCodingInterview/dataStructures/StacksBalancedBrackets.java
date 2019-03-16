@@ -12,19 +12,19 @@ public class StacksBalancedBrackets {
 			Stack<Character> stack = new Stack<>();
 			for (Character bracket : expression.toCharArray()) {
 				switch (bracket) {
-				case '{':
-					stack.push('}');
-					break;
-				case '(':
-					stack.push(')');
-					break;
-				case '[':
-					stack.push(']');
-					break;
-				default:
-					if(stack.empty() || bracket != stack.peek()) { // Check if stack is empty or top of stack is close bracket
-						return false;
-					}
+					case '{':
+						stack.push('}');
+						break;
+					case '(':
+						stack.push(')');
+						break;
+					case '[':
+						stack.push(']');
+						break;
+					default:
+						if(stack.empty() || bracket != stack.peek()) { // Check if stack is empty or top of stack is close bracket
+							return false;
+						}
 					stack.pop();
 				}
 			}
