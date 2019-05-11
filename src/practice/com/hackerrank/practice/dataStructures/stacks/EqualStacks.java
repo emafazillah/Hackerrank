@@ -13,36 +13,46 @@ public class EqualStacks {
      */
     static int equalStacks(int[] h1, int[] h2, int[] h3) {
     	int totalStack1 = 0;
+    	Stack<Integer> stack1 = new Stack<>();
+    	int countStack1 = h1.length - 1;
+    	while(countStack1 > -1) {
+    		stack1.push(h1[countStack1]);
+        	totalStack1 += h1[countStack1];
+    		--countStack1;
+    	}
+        
     	int totalStack2 = 0;
-    	int totalStack3 = 0;
-    	
-        Stack<Integer> stack1 = new Stack<>();
-        for(int i = 0; i < h1.length; i++) {
-        	stack1.push(h1[i]);
-        	totalStack1 += h1[i];
-        }
-        
         Stack<Integer> stack2 = new Stack<>();
-        for(int i = 0; i < h2.length; i++) {
-        	stack2.push(h2[i]);
-        	totalStack2 += h2[i];
-        }
+        int countStack2 = h2.length - 1;
+    	while(countStack2 > -1) {
+    		stack2.push(h2[countStack2]);
+        	totalStack2 += h2[countStack2];
+    		--countStack2;
+    	}
         
-        Stack<Integer> stack3 = new Stack<>();
-        for(int i = 0; i < h3.length; i++) {
-        	stack3.push(h3[i]);
-        	totalStack3 += h3[i];
-        }
+    	int totalStack3 = 0;
+    	Stack<Integer> stack3 = new Stack<>();
+    	int countStack3 = h3.length - 1;
+    	while(countStack3 > -1) {
+    		stack3.push(h3[countStack3]);
+        	totalStack3 += h3[countStack3];
+    		--countStack3;
+    	}
         
-        while(totalStack1 != totalStack2 && totalStack1 != totalStack3) {
-        	totalStack1 -= stack1.peek();
-        	stack1.pop();
-        	
-        	totalStack2 -= stack2.peek();
-        	stack2.pop();
-        	
-        	totalStack3 -= stack3.peek();
-        	stack3.pop();
+    	while(!(totalStack1 == totalStack2 && totalStack2 == totalStack3 && totalStack3 ==totalStack1)){
+            if(totalStack1 == 0 || totalStack2 == 0 || totalStack3 == 0){
+            	totalStack1 = 0;
+                break;
+            }else if(totalStack1 >= totalStack2 && totalStack1 >= totalStack3){
+            	totalStack1 -= stack1.peek();
+                stack1.pop();
+            }else if(totalStack2 >= totalStack1 && totalStack2 >= totalStack3){
+            	totalStack2 -= stack2.peek();
+                stack2.pop();
+            }else if(totalStack3 >= totalStack1 && totalStack3 >= totalStack2){
+            	totalStack3 -= stack3.peek();
+                stack3.pop();
+            }
         }
 
     	return totalStack1;
