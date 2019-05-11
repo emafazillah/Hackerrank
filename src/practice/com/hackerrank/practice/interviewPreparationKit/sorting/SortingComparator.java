@@ -1,4 +1,4 @@
-package com.hackerrank.practice.crackingTheCodingInterview.interviewPreparationKit;
+package com.hackerrank.practice.interviewPreparationKit.sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;

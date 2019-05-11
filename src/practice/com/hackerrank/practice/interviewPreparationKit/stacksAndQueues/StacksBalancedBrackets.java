@@ -1,4 +1,4 @@
-package com.hackerrank.practice.crackingTheCodingInterview.dataStructures;
+package com.hackerrank.practice.interviewPreparationKit.stacksAndQueues;
 
 import java.util.Scanner;
 import java.util.Stack;

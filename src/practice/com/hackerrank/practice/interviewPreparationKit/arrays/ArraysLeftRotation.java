@@ -1,4 +1,4 @@
-package com.hackerrank.practice.crackingTheCodingInterview.dataStructures;
+package com.hackerrank.practice.interviewPreparationKit.arrays;
 
 import java.util.Scanner;
 

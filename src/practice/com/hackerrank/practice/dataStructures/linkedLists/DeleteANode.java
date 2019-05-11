@@ -1,17 +1,9 @@
-package com.hackerrank.practice.crackingTheCodingInterview.interviewPreparationKit;
+package com.hackerrank.practice.dataStructures.linkedLists;
 
-import java.io.BufferedWriter;
-//import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- * 
- * @author emafazillah
- * Failed test8 only
- *
- */
-public class InsertANodeAtASpecificPositionInALinkedList {
+public class DeleteANode {
 	
 	static class SinglyLinkedListNode {
         public int data;
@@ -45,31 +37,19 @@ public class InsertANodeAtASpecificPositionInALinkedList {
         }
     }
 
-    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
-        while (node != null) {
-            bufferedWriter.write(String.valueOf(node.data));
+//    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
+//        while (node != null) {
+//            bufferedWriter.write(String.valueOf(node.data));
+//
+//            node = node.next;
+//
+//            if (node != null) {
+//                bufferedWriter.write(sep);
+//            }
+//        }
+//    }
 
-            node = node.next;
-
-            if (node != null) {
-                bufferedWriter.write(sep);
-            }
-        }
-    }
-    
-    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) throws IOException {
-        while (node != null) {
-            System.out.println(String.valueOf(node.data));
-
-            node = node.next;
-
-            if (node != null) {
-                System.out.println(sep);
-            }
-        }
-    }
-
-    // Complete the insertNodeAtPosition function below.
+    // Complete the deleteNode function below.
 
     /*
      * For your reference:
@@ -80,29 +60,30 @@ public class InsertANodeAtASpecificPositionInALinkedList {
      * }
      *
      */
-    static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position) {
-    	SinglyLinkedList newHead = new SinglyLinkedList();
+    static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
+    	if(head == null) {
+    		return null;
+    	}
+    	
+    	SinglyLinkedList newNode = new SinglyLinkedList();
     	
     	int i = 0;
     	while(head != null) {
-    		if(i == position) {
-    			newHead.insertNode(data);
+    		if(i != position) {
+    			newNode.insertNode(head.data);
     		}
     		
-    		newHead.insertNode(head.data);
-    		
-    		++i;
-    		
     		head = head.next;
+    		++i;
     	}
     	
-    	return newHead.head;
+    	return newNode.head;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         SinglyLinkedList llist = new SinglyLinkedList();
 
@@ -116,22 +97,17 @@ public class InsertANodeAtASpecificPositionInALinkedList {
             llist.insertNode(llistItem);
         }
 
-        int data = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
         int position = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        SinglyLinkedListNode llist_head = insertNodeAtPosition(llist.head, data, position);
+        SinglyLinkedListNode llist1 = deleteNode(llist.head, position);
 
-//        printSinglyLinkedList(llist_head, " ", bufferedWriter);
+//        printSinglyLinkedList(llist1, " ", bufferedWriter);
 //        bufferedWriter.newLine();
-
+//
 //        bufferedWriter.close();
-        
-        printSinglyLinkedList(llist_head, " ");
 
         scanner.close();
     }
-    
+
 }
