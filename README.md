@@ -98,6 +98,7 @@
 	- Reverse a Linked List (Linked Lists)
 	- Equal Stacks (Stacks)
 	- Preorder Traversal (Trees)
+	- Reverse a Linked List (Linked Lists)
 
 #### Medium
 	- Balanced Brackets (Stacks)
