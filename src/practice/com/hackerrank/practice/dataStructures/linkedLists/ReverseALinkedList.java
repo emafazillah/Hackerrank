@@ -39,30 +39,44 @@ public class ReverseALinkedList {
         }
     }
 	
+	static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) {
+        while (node != null) {
+            System.out.print(node.data);
+
+            node = node.next;
+
+            if (node != null) {
+                System.out.print(sep);
+            }
+        }
+    }
+	
 	static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
-		SinglyLinkedListNode temp = head;
+		SinglyLinkedListNode node = head;
     	int count = 1;
     	
-    	while(temp.next != null) {
-    		temp = temp.next;
+    	while(node.next != null) {
+    		node = node.next;
     		++count;
     	}
     	
+    	SinglyLinkedList nodeList = new SinglyLinkedList();
+    	
     	while(count > 0) {
-    		temp = head;
+    		node = head;
     		
     		int innerCount = count;
     		while(innerCount > 1) {
-    			temp = temp.next;
+    			node = node.next;
     			--innerCount;
     		}
     		
-    		System.out.println(temp.data);
+    		nodeList.insertNode(node.data);
     		
     		--count;
     	}
 		
-		return null;
+		return nodeList.head;
     }
 	
 	private static final Scanner scanner = new Scanner(System.in);
@@ -88,7 +102,7 @@ public class ReverseALinkedList {
 
             SinglyLinkedListNode llist1 = reverse(llist.head);
 
-            //printSinglyLinkedList(llist1, " ", bufferedWriter);
+            printSinglyLinkedList(llist1, " ");
             //bufferedWriter.newLine();
         }
 
