@@ -17,13 +17,8 @@ public class MaximumElement {
         	if(input == 1) {
         		// next value push into stack
         		stack.push(scanner.nextInt());
-        	} else if(input == 2) {
-        		// delete from stack
-        		if(!stack.isEmpty()) {
-        			stack.pop();
-        		}
-        	} else if(input == 3) {
-        		// print the maximum element in the stack
+        		
+        		// update new maximum element
         		if(maxElement.isEmpty()) {
         			maxElement.push(stack.peek());
         		} else {
@@ -31,6 +26,20 @@ public class MaximumElement {
         				maxElement.push(stack.peek());
         			}
         		}
+        	} else if(input == 2) {
+        		// delete from stack if not empty
+        		if(!stack.isEmpty()) {
+        			if((stack.peek()).equals(maxElement.peek())) {
+        				maxElement.pop();
+        			}
+        			stack.pop();
+        		} 
+        		// else update maximum element
+        		else {
+        			maxElement = new Stack<>();
+        		}
+        	} else if(input == 3) {
+        		// print the maximum element in the stack        		
         		System.out.println(maxElement.peek());
         	}
         	
