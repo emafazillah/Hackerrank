@@ -1,52 +1,43 @@
 package com.hackerrank.practice.dataStructures.stacks;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class MaximumElement {
 
 	public static void main(String[] args) {
-		// Input
-        Scanner scanner = new Scanner(System.in);
-        List<Integer> inputList = new ArrayList<>();
+		Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         int count = 0;
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> maxElement = new Stack<>();
         while(count < N) {
         	int input = scanner.nextInt();
-        	inputList.add(input);
+        	
         	if(input == 1) {
-        		inputList.add(scanner.nextInt());
+        		// next value push into stack
+        		stack.push(scanner.nextInt());
+        	} else if(input == 2) {
+        		// delete from stack
+        		if(!stack.isEmpty()) {
+        			stack.pop();
+        		}
+        	} else if(input == 3) {
+        		// print the maximum element in the stack
+        		if(maxElement.isEmpty()) {
+        			maxElement.push(stack.peek());
+        		} else {
+        			if(stack.peek() > maxElement.peek()) {
+        				maxElement.push(stack.peek());
+        			}
+        		}
+        		System.out.println(maxElement.peek());
         	}
-        	++count;
+        	
+        	count++;
         }
         
         scanner.close();
-        
-        // Create Stack
-        Stack<Integer> stack = new Stack<>();
-        
-        for(Integer input : inputList) {
-        	switch(input) {
-	        	case 1:
-	        		// next value push into stack
-	        		break;
-	        	case 2: 
-	        		// delete from stack
-	        		if(!stack.isEmpty()) {
-	        			stack.pop();
-	        		}
-	        		break;
-	        	case 3: 
-	        		// print the maximum element in the stack
-	        		System.out.println(stack.peek());
-	        		break;
-        		default:
-        			stack.push(input);
-        			break;
-        	}
-        }
     }
 	
 }
