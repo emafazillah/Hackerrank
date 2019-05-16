@@ -22,7 +22,7 @@ public class MaximumElement {
         		if(maxElement.isEmpty()) {
         			maxElement.push(stack.peek());
         		} else {
-        			if(stack.peek() > maxElement.peek()) {
+        			if(stack.peek() >= maxElement.peek()) {
         				maxElement.push(stack.peek());
         			}
         		}
