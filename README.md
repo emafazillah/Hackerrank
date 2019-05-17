@@ -99,6 +99,7 @@
 	- Equal Stacks (Stacks)
 	- Preorder Traversal (Trees)
 	- Reverse a Linked List (Linked Lists)
+	- Maximum Element (Stacks)
 
 #### Medium
 	- Balanced Brackets (Stacks)
