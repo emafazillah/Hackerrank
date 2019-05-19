@@ -15,31 +15,27 @@ public class SimpleTextEditor {
 		stack.push(inputString);
 		
 		while(count < N) {
-			int k = 0;
 			int input = scanner.nextInt();
 			switch(input) {
 				case 1:
 					// Append string
-					inputString = stack.peek();
 					inputString += scanner.next();
 					stack.push(inputString);
 					break;
 				case 2:
 					// Delete the last kth character
-					k = scanner.nextInt();
-					inputString = stack.peek();
-					inputString = inputString.substring(0, stack.peek().length() - k);
+					int len = inputString.length();
+					inputString = inputString.substring(0, len - scanner.nextInt());
 					stack.push(inputString);
 					break;
 				case 3:
 					// Print the kth character
-					k = scanner.nextInt();
-					inputString = stack.peek();
-					System.out.println(inputString.charAt(k - 1));
+					System.out.println(inputString.charAt(scanner.nextInt() - 1));
 					break;
 				case 4:
 					// Undo
 					stack.pop();
+					inputString = stack.peek();
 					break;
 			}
 			
