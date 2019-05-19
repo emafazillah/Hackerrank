@@ -19,10 +19,10 @@ public class SimpleTextEditor {
 				stack.push(scanner.next());
 			} else if(input == 2) {
 				// Delete the last kth character
-				int k = scanner.nextInt();
+				int k = scanner.nextInt() - 1;
 				String inputString = stack.peek();
 				while(k > -1) {
-					inputString = inputString.substring(k - 1);
+					inputString = inputString.substring(k);
 					--k;
 				}
 				stack.push(inputString);
