@@ -10,28 +10,25 @@ public class SimpleTextEditor {
 		Scanner scanner = new Scanner(System.in);
 		int N = scanner.nextInt();
 		int count = 0;
+		String inputString = "";
 		Stack<String> stack = new Stack<>();
+		stack.push(inputString);
 		
 		while(count < N) {
 			int k = 0;
-			String inputString = "";
 			int input = scanner.nextInt();
 			switch(input) {
 				case 1:
 					// Append string
-					if(!stack.isEmpty()) {
-						inputString = stack.peek();
-					} else {
-						inputString = "";
-					}
+					inputString = stack.peek();
 					inputString += scanner.next();
 					stack.push(inputString);
 					break;
 				case 2:
 					// Delete the last kth character
-					k = scanner.nextInt() - 1;
+					k = scanner.nextInt();
 					inputString = stack.peek();
-					inputString = inputString.substring(k, k);
+					inputString = inputString.substring(0, stack.peek().length() - k);
 					stack.push(inputString);
 					break;
 				case 3:
