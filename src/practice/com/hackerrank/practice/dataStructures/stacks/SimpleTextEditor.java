@@ -29,8 +29,8 @@ public class SimpleTextEditor {
 			} else if(input == 3) {
 				// Print the kth character
 				int k = scanner.nextInt();
-				char[] charArray = stack.peek().toCharArray();
-				System.out.println(charArray[k - 1]);
+				String inputString = stack.peek();
+				System.out.println(inputString.charAt(k - 1));
 			} else if(input == 4) {
 				// Undo
 				stack.pop();
