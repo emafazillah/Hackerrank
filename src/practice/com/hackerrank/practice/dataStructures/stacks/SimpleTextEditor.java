@@ -13,27 +13,37 @@ public class SimpleTextEditor {
 		Stack<String> stack = new Stack<>();
 		
 		while(count < N) {
+			int k = 0;
+			String inputString = "";
 			int input = scanner.nextInt();
-			if(input == 1) {
-				// Append string
-				stack.push(scanner.next());
-			} else if(input == 2) {
-				// Delete the last kth character
-				int k = scanner.nextInt() - 1;
-				String inputString = stack.peek();
-				while(k > -1) {
-					inputString = inputString.substring(k);
-					--k;
-				}
-				stack.push(inputString);
-			} else if(input == 3) {
-				// Print the kth character
-				int k = scanner.nextInt();
-				String inputString = stack.peek();
-				System.out.println(inputString.charAt(k - 1));
-			} else if(input == 4) {
-				// Undo
-				stack.pop();
+			switch(input) {
+				case 1:
+					// Append string
+					if(!stack.isEmpty()) {
+						inputString = stack.peek();
+					} else {
+						inputString = "";
+					}
+					inputString += scanner.next();
+					stack.push(inputString);
+					break;
+				case 2:
+					// Delete the last kth character
+					k = scanner.nextInt() - 1;
+					inputString = stack.peek();
+					inputString = inputString.substring(k, k);
+					stack.push(inputString);
+					break;
+				case 3:
+					// Print the kth character
+					k = scanner.nextInt();
+					inputString = stack.peek();
+					System.out.println(inputString.charAt(k - 1));
+					break;
+				case 4:
+					// Undo
+					stack.pop();
+					break;
 			}
 			
 			++count;
