@@ -34,9 +34,11 @@ public class Waiter {
 
         for (int resultItr = 0; resultItr < result.length; resultItr++) {
             //bufferedWriter.write(String.valueOf(result[resultItr]));
+        	System.out.println(String.valueOf(result[resultItr]));
 
             if (resultItr != result.length - 1) {
                 //bufferedWriter.write("\n");
+            	System.out.println();
             }
         }
 
