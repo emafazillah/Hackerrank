@@ -104,7 +104,7 @@
 #### Medium
 	- Balanced Brackets (Stacks)
 	- Simple Text Editor (Stacks)
-	- Waiter (Stacks)
+	- Game of Two Stacks (Stacks)
 	
 ### Interview Preparation Kit
 
