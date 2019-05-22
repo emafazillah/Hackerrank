@@ -2,42 +2,54 @@ package com.hackerrank.practice.dataStructures.stacks;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class GameOfTwoStacks {
 	
 	static int twoStacks(int x, int[] a, int[] b) {
-        int result = 0;
+        // Put array "a" into a stack
+        int count = a.length - 1;
+        Stack<Integer> stackA = new Stack<>();
+        while(count > -1) {
+        	stackA.push(a[count]);
+        	--count;
+        }
         
-        int i = 0;
-        int j = 0;
-        while(result <= x) {
-        	int temp = result;
-        	int aPlusB = a[i] + b[j];
-        	temp += aPlusB;
-        	if(temp <= x) {
-        		result = temp;
-        		++i;
-        		++j;
+        // Put array "b" into a stack
+        count = b.length - 1;
+        Stack<Integer> stackB = new Stack<>();
+        while(count > -1) {
+        	stackB.push(b[count]);
+        	--count;
+        }
+        
+        // Escape if sum of removed integers from stack exceed x
+        int sum = 0;
+        int total = 0;
+        while(sum <= x) {
+        	if((sum + stackA.peek() + stackB.peek()) <= x) {
+        		sum += stackA.peek() + stackB.peek();
+        		total += 2;
+        		stackA.pop();
+        		stackB.pop();
         	} else {
-        		temp = result;
-        		temp += a[i];
-        		if(temp <= x) {
-        			result = temp;
-        			++i;
+        		if((sum + stackA.peek()) <= x) {
+        			sum += stackA.peek();
+            		total += 1;
+            		stackA.pop();
         		} else {
-        			temp = result;
-        			temp += b[j];
-        			if(temp <= x) {
-        				result = temp;
-        				++j;
-        			} else {
-        				break;
-        			}
+        			if((sum + stackB.peek()) <= x) {
+            			sum += stackB.peek();
+                		total += 1;
+                		stackB.pop();
+            		} else {
+            			break;
+            		}
         		}
         	}
         }
         
-		return i + j;
+		return total;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
