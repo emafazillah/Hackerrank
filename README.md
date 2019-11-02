@@ -182,6 +182,7 @@
 	- Java Regex 3 (Strings)
 	- Java Content Extractor (Strings)
 	- Java 1D Array - Part 2 (Attempted) (Data Structures)
+	- Java Stack (Data Structures)
 	
 ### 30 Days of Codes
 
