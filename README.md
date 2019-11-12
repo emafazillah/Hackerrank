@@ -186,6 +186,7 @@
 	- Java MD5 (Advanced)
 	- Java SHA-256 (Advanced)
 	- Java Annotations (Advanced)
+	- Prime Checker (Advanced)
 	
 ### 30 Days of Codes
 
