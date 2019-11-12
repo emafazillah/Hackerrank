@@ -7,8 +7,35 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Prime {
-	public void checkPrime(int...n) {
+	public void checkPrime(int...nums) {
+		for (int num : nums) {
+			if (isPrime(num)) {
+				System.out.print(num + " ");
+			}
+		}
 		
+		System.out.println();
+	}
+	
+	private boolean isPrime(int num) {
+		if (num < 2) {
+			return false;
+		} else if (num == 2) {
+			return true;
+		} else if (num == 3) {
+			return true;
+		} else {
+			int count = num - 1;
+			while (count > 1) {
+				if (num % count == 0) {
+					return false;
+				}
+				
+				--count;
+			}
+			
+			return true;
+		}
 	}
 }
 
